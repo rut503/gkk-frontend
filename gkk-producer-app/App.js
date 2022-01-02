@@ -1,23 +1,21 @@
-import { StatusBar } from 'expo-status-bar';
-import { StyleSheet, Text, View } from 'react-native';
+import { StatusBar } from "expo-status-bar"
+import { StyleSheet, Text, View } from "react-native"
 
-import Greet from 'gkk-shared-code';
+import Greet from "gkk-shared-code"
+
+import MainNavigator from "./navigations/mainNavigator"
 
 export default function App() {
-  return (
-    <View style={styles.container}>
-      <Text>This is Producer App.</Text>
-      <Greet />
-      <StatusBar style="auto" />
-    </View>
-  );
+    return (
+        <MainNavigator />
+    )
 }
 
 const styles = StyleSheet.create({
-  container: {
-    flex: 1,
-    backgroundColor: '#fff',
-    alignItems: 'center',
-    justifyContent: 'center',
-  },
-});
+    container: {
+        flex: 1,
+        backgroundColor: "#fff",
+        alignItems: "center",
+        justifyContent: "center",
+    },
+})

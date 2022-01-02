@@ -1,14 +1,13 @@
-import React from "react";
-import { View, Text, StyleSheet } from "react-native";
+import { View, Text, StyleSheet } from "react-native"
 
-import Colors from "../constants/colors";
+import Colors from "../constants/colors"
 
 const SignupScreen = () => {
     return(
         <View style={styles.container}>
             <Text style={styles.text}>This is the Signup Screen.</Text>
         </View>
-    );
+    )
 }
 
 const styles = StyleSheet.create({
@@ -17,8 +16,8 @@ const styles = StyleSheet.create({
         backgroundColor: Colors.dark1,
     },
     text: {
-        color: Colors.light1
-    }
+        color: Colors.light1,
+    },
 })
 
-export default SignupScreen;
+export default SignupScreen
