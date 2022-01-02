@@ -1,9 +1,10 @@
-import { View, Text, StyleSheet } from "react-native"
+import { View, Text, StyleSheet, Button } from "react-native"
 
-const FoodItemsScreen = () => {
+const FoodItemsScreen = ({ navigation }) => {
     return (
         <View style={styles.container}>
             <Text style={styles.text}>Food Items Screen</Text>
+            <Button title="Food Item Detail" onPress={() => navigation.navigate("Food Item Details")} />
         </View>
     )
 }
