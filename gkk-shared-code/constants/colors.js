@@ -1,8 +1,15 @@
 export default {
-    dark1: "#000000",
-    dark2: "#111111",
-    dark3: "#222222",
-    light1: "#ffffff",
-    light2: "#eeeeee",
-    light3: "#dddddd",
+    DarkMode:{
+        background1: "#000000",
+        background2: "#111111",
+        text1: "#FFFFFF",
+        text2: "#BBBBBB",
+        accent: "#FFBC33",
+        green: "#00C490",
+        red: "#F34C53",
+        blue: "#348BDF",
+    },
+    LightMode:{
+        
+    }
 }
