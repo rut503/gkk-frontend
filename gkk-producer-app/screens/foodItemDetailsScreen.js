@@ -1,9 +1,20 @@
+import { useState } from "react"
 import { View, Text, StyleSheet } from "react-native"
 
-const FoodItemDetailsScreen = () => {
+const FoodItemDetailsScreen = ({ navigation, route }) => {
+    const [data, setData] = useState(route.params.data)
+
     return (
         <View style={styles.container}>
-            <Text style={styles.text}>Food Item Details Screen</Text>
+            <Text style={styles.text}>{data.time}</Text>
+            <Text style={styles.text}>Made by - {data.chef}</Text>
+            <Text style={styles.text}>{data.foodName}</Text>
+            <Text style={styles.text}>{data.price}</Text>
+            <Text style={styles.text}>{data.type}</Text>
+            <Text style={styles.text}>Spicy Level: {data.spicyLevel}</Text>
+            <Text style={styles.text}>{data.quantity} oz</Text>
+            <Text style={styles.text}>Stars: ({data.numOfReviews})</Text>
+            <Text style={styles.text}>{data.distance} miles</Text>
         </View>
     )
 }

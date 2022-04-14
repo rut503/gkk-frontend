@@ -1,23 +1,129 @@
-import { View, Text, StyleSheet } from "react-native"
+import { View, Text, Image, StyleSheet, ScrollView } from "react-native"
+import { FontAwesome5, FontAwesome } from '@expo/vector-icons'
+
+import Colors from "../constants/colors"
+import ReviewComponent from "../components/reviewComponent"
 
 const ProfileScreen = () => {
     return (
-        <View style={styles.container}>
-            <Text style={styles.text}>Profile Screen</Text>
-        </View>
+        <ScrollView style={styles.scrollView}>
+            <View style={styles.container}>
+                <Image style={styles.userImage} source={{url: 'https://images.unsplash.com/photo-1517849845537-4d257902454a?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=735&q=80'}} />
+                <Text style={styles.userName}>Producer Name</Text>
+                
+                <View style={styles.grid}>
+                    <View style={styles.row}>
+                        <FontAwesome name="phone" style={styles.iconCol}/>
+                        <Text style={styles.infoCol}>+1 (888) 777 - 9999</Text>
+                    </View>
+                    <View style={styles.row}>
+                        <FontAwesome name="envelope" style={styles.iconCol}/>
+                        <Text style={styles.infoCol}>producer@email.domain</Text>
+                    </View>
+                    <View style={styles.row}>
+                        <FontAwesome name="map-marker" style={styles.iconCol}/>
+                        <Text style={styles.infoCol}>123 Some Street, City Name, State, Zip Code</Text>
+                    </View>
+                    <View style={styles.row}>
+                        <FontAwesome5 name="user-edit" style={styles.iconCol}/>
+                        <Text style={styles.infoCol}>These are some words about me that describe me and my passion for cooking.</Text>
+                    </View>
+                </View>
+
+                <View style={styles.line}></View>
+
+                <Text style={styles.title}>Customer Reviews</Text>
+                <View style={styles.stars}>
+                    <FontAwesome name="star" style={styles.star}/>
+                    <FontAwesome name="star" style={styles.star}/>
+                    <FontAwesome name="star" style={styles.star}/>
+                    <FontAwesome name="star" style={styles.star}/>
+                    <FontAwesome name="star" style={styles.star}/>
+                </View>
+                <Text style={styles.subTitle}># Total Ratings</Text>
+
+                <ReviewComponent />
+                <ReviewComponent />
+                <ReviewComponent />
+                <ReviewComponent />
+                <ReviewComponent />
+                <ReviewComponent />
+
+                
+            </View>
+        </ScrollView>
     )
 }
 
 const styles = StyleSheet.create({
+    scrollView:{
+        backgroundColor: Colors.DarkMode.background2,
+    },
     container: {
-        flex: 1,
         justifyContent: "center",
         alignItems: "center",
     },
-    text: {
-        color: "purple",
-        fontSize: 24,
+
+    userImage: {
+        marginTop: 30,
+        width: 100,
+        height: 100,
+        borderRadius: 100
     },
+    userName: {
+        marginVertical: 20,
+        fontSize: 24,
+        fontWeight: "bold",
+        color: Colors.DarkMode.text1,
+    },
+
+    grid:{
+        marginVertical: 10,
+        width: "95%",
+    },
+    row:{
+        flexDirection: "row",
+        marginVertical: 10,
+    },
+    iconCol: {
+        textAlign: "center",
+        width: 40,
+        fontSize: 20,
+        color: Colors.DarkMode.accent,
+    },
+    infoCol:{
+        color: Colors.DarkMode.text1,
+        fontSize: 14,
+        fontWeight: "bold",
+        flexShrink: 1
+    },
+
+    line:{
+        marginVertical: 10,
+        height: 1,
+        width: "95%",
+        backgroundColor: Colors.DarkMode.text1,
+    },
+
+    title: {
+        marginVertical: 10,
+        fontSize: 24,
+        color: Colors.DarkMode.text1,
+        fontWeight: "bold",
+    },
+    stars:{
+        flexDirection: "row",
+    },
+    star: {
+        fontSize: 20,
+        color: Colors.DarkMode.accent,
+    },
+    subTitle:{
+        fontSize: 14,
+        color: Colors.DarkMode.text1,
+        fontWeight: "bold",
+        marginVertical: 10,
+    }
 })
 
 export default ProfileScreen
