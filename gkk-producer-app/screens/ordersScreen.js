@@ -1,5 +1,7 @@
 import { View, Text, StyleSheet } from "react-native"
 
+import Colors from "../constants/colors"
+
 const OrdersScreen = () => {
     return (
         <View style={styles.container}>
@@ -13,9 +15,10 @@ const styles = StyleSheet.create({
         flex: 1,
         justifyContent: "center",
         alignItems: "center",
+        backgroundColor: Colors.DarkMode.background2,
     },
     text: {
-        color: "purple",
+        color: "white",
         fontSize: 24,
     },
 })

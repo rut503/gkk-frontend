@@ -1,6 +1,8 @@
 import { useState } from "react"
 import { View, Text, StyleSheet } from "react-native"
 
+import Colors from "../constants/colors"
+
 const FoodItemDetailsScreen = ({ navigation, route }) => {
     const [data, setData] = useState(route.params.data)
 
@@ -24,9 +26,10 @@ const styles = StyleSheet.create({
         flex: 1,
         justifyContent: "center",
         alignItems: "center",
+        backgroundColor: Colors.DarkMode.background2,
     },
     text: {
-        color: "purple",
+        color: "white",
         fontSize: 24,
     },
 })
