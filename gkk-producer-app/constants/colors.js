@@ -1,7 +1,7 @@
 export default {
     DarkMode:{
         background1: "#000000",
-        background2: "#111111",
+        background2: "#111",
         text1: "#FFFFFF",
         text2: "#BBBBBB",
         accent: "#FFBC33",
