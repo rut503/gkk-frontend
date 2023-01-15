@@ -151,7 +151,7 @@ const MainDrawerNavigator = () => {
                 },
                 drawerType: "back",
                 drawerActiveTintColor: Colors.DarkMode.accent,
-                drawerInactiveTintColor: Colors.DarkMode.text2,
+                drawerInactiveTintColor: Colors.DarkMode.text2
             }}
         >
             <Drawer.Screen name="Home" component={MainTabNavigator} options={{ headerShown: false }} />
