@@ -1493,6 +1493,11 @@
     "@jridgewell/resolve-uri" "3.1.0"
     "@jridgewell/sourcemap-codec" "1.4.14"
 
+"@miblanchard/react-native-slider@^2.2.0":
+  version "2.2.0"
+  resolved "https://registry.yarnpkg.com/@miblanchard/react-native-slider/-/react-native-slider-2.2.0.tgz#5d03cf49516ad0a3b4011fbcad53cb379800832b"
+  integrity sha512-LepVGFVy6KtDVgMRIAAJJKQCXbcADkzK2R61t3LkD+IF2wG1J4I4KVo99GAsvU0EBKeCsjHPkR+6LGnB6xGzVA==
+
 "@nodelib/fs.scandir@2.1.5":
   version "2.1.5"
   resolved "https://registry.yarnpkg.com/@nodelib/fs.scandir/-/fs.scandir-2.1.5.tgz#7619c2eb21b25483f6d167548b4cfd5a7488c3d5"
@@ -3499,7 +3504,7 @@ getenv@^1.0.0:
   resolved "https://registry.yarnpkg.com/getenv/-/getenv-1.0.0.tgz#874f2e7544fbca53c7a4738f37de8605c3fcfc31"
   integrity sha512-7yetJWqbS9sbn0vIfliPsFgoXMKn/YMF+Wuiog97x+urnSRRRZ7xB+uVkwGKzRgq9CDFfMQnE9ruL5DHv9c6Xg==
 
-"gkk-shared-code@file:../gkk-shared-code":
+"gkk-shared-code@file:../shared-code":
   version "1.0.0"
 
 glob-parent@^5.1.2:
