@@ -1,7 +1,9 @@
 import { useState, useEffect } from "react"
-import { View, Text, StyleSheet, KeyboardAvoidingView, Button, TextInput, Platform, Pressable, ScrollView, Alert } from "react-native"
+import { View, Text, StyleSheet, KeyboardAvoidingView, Button, TextInput, Platform, Pressable, ScrollView, Alert, Image } from "react-native"
 import { FontAwesome5 } from "@expo/vector-icons"
 import { Slider } from "@miblanchard/react-native-slider"
+
+import * as ImagePicker from "expo-image-picker"
 
 import Colors from "../constants/colors"
 
@@ -25,8 +27,23 @@ const AddNewFoodItemScreen = ({ navigation }) => {
     const [dairy, setDairy] = useState(false)
     const [gluten, setGluten] = useState(false)
 
-    const add = () => {
+    const pickImageAsync = async () => {
+        let result = await ImagePicker.launchImageLibraryAsync({
+            allowsEditing: true,
+            quality: 1,
+            mediaTypes: 'Images'
+        })
+        if (!result.canceled) {
+            console.log(result)
+            setPhoto(result.assets[0].uri)
+        }
+        else {
+            alert('You did not select any image.')
+        }
+     }
+    
 
+    const add = () => {
         // navigation.goBack()
     }
     const cancel = () => {
@@ -79,9 +96,6 @@ const AddNewFoodItemScreen = ({ navigation }) => {
                         trackStyle={styles.track}
                     />
 
-                    <Text style={styles.inputTitle}>{dietPreference}</Text>
-                    
-
                     <Text style={styles.inputTitle}>Diet Preferances</Text>
                     <View style={styles.row}>
                         <Pressable style={{...styles.select, backgroundColor: vegan ? Colors.DarkMode.text1 : Colors.DarkMode.background3}} onPress={() => setVegan(!vegan)}>
@@ -116,7 +130,10 @@ const AddNewFoodItemScreen = ({ navigation }) => {
                         </Pressable>
                     </View>
 
-                    <Text style={styles.inputTitle}>Photo</Text>
+                    <Text style={styles.inputTitle}>Image</Text>
+                    <Pressable style={styles.btn} onPress={pickImageAsync} />
+                    <Image style={styles.photo} source={{ uri: photo}} />
+
 
                     <View style={styles.row}>
                         <Pressable style={styles.btn} onPress={add}>
@@ -126,6 +143,12 @@ const AddNewFoodItemScreen = ({ navigation }) => {
                             <Text style={styles.btnText}>Cancel</Text>
                         </Pressable>
                     </View>
+
+                    <Text></Text>
+                    <Text></Text>
+                    <Text></Text>
+                    <Text></Text>
+                    <Text></Text>
 
                 </View>
             </ScrollView>
@@ -199,6 +222,11 @@ const styles = StyleSheet.create({
         backgroundColor: Colors.DarkMode.background3,
         borderRadius: 20,
         height: 7,
+    },
+
+    photo: {
+        width: 100,
+        height: 100,
     },
 })
 
