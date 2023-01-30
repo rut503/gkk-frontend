@@ -19,6 +19,9 @@ import PrepareScreen from "../screens/prepareScreen"
 
 import ProfileScreen from "../screens/profileScreen"
 
+import LoginScreen from "../screens/loginScreen"
+import SignupScreen from "../screens/signupScreen"
+
 const Stack = createStackNavigator();
 const Tab = createBottomTabNavigator();
 const Drawer = createDrawerNavigator();
@@ -160,4 +163,19 @@ const MainDrawerNavigator = () => {
     )
 }
 
-export default MainDrawerNavigator
+const MainLandingScreenNavigator = () => {
+    return (
+        <Stack.Navigator
+            screenOptions={{
+                headerStyle:{ backgroundColor: Colors.DarkMode.background2 },
+                headerTitleStyle:{ color: Colors.DarkMode.text1 }
+            }}
+        >
+            <Stack.Screen name="Login" component={LoginScreen} />
+            <Stack.Screen name="Signup" component={SignupScreen} />
+            <Stack.Screen name="MainDrawerNavigator" component={MainDrawerNavigator} options={{headerShown: false}}/>
+        </Stack.Navigator>
+    )
+}
+
+export default MainLandingScreenNavigator
