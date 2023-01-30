@@ -1,5 +1,5 @@
-import { useState, useCallback } from "react"
-import { View, Text, StyleSheet, KeyboardAvoidingView, Button, TextInput, Platform, Pressable, ScrollView, Alert, Image } from "react-native"
+import { useState } from "react"
+import { View, Text, StyleSheet, KeyboardAvoidingView, TextInput, Platform, Pressable, ScrollView, Alert, Image } from "react-native"
 import { FontAwesome5 } from "@expo/vector-icons"
 import { Slider } from "@miblanchard/react-native-slider"
 import { FakeCurrencyInput } from "react-native-currency-input"
@@ -13,10 +13,10 @@ const AddNewFoodItemScreen = ({ navigation }) => {
     const [openDropDown, setOpenDropDown] = useState(false)
     const [dietPreference, setDietPreference] = useState(null)
     const [dropDownItems, setDropDownItems] = useState([
-        {label: "Vegan", value: "vegan"},
-        {label: "Vegetarian", value: "vegetarian"},
-        {label: "Eggitarian", value: "eggitarian"},
-        {label: "Non Vegetarian", value: "non-vegetarian"}
+        {label: "Vegan", value: "Vegan"},
+        {label: "Vegetarian", value: "Vegetarian"},
+        {label: "Eggitarian", value: "Eggitarian"},
+        {label: "Non-vegetarian", value: "Non-vegetarian"}
     ])
 
     // const [openPU, setOpenPU] = useState(false)
@@ -115,40 +115,41 @@ const AddNewFoodItemScreen = ({ navigation }) => {
     return (
         <KeyboardAvoidingView behavior={Platform.OS === "ios" ? "padding" : "height"} keyboardVerticalOffset={70}>
             <ScrollView contentContainerStyle={styles.container}>
-                <View style={styles.subContainer}>
 
-                    <Text style={styles.inputTitle}>Name</Text>
-                    <TextInput style={styles.input} onChangeText={setName} value={name} placeholder="Name your food item" placeholderTextColor={Colors.DarkMode.text3}/>
-                    
-                    <View style={styles.row}>
-                        <View style={styles.col}>
-                            <Text style={styles.inputTitle}>Price</Text>
-                            <View style={styles.row}>
-                                <View style={styles.dollarSignBox}><FontAwesome5 name="dollar-sign" style={{ color: Colors.DarkMode.green, fontSize: 20 }} /></View>
-                                <FakeCurrencyInput value={price} onChangeValue={(value) => setPrice(value == null ? 0 : value)} separator="." precision={2} minValue={0} maxValue={99.99} keyboardType="number-pad" style={{ color: price == 0 ? Colors.DarkMode.text3 : Colors.DarkMode.text1 }} containerStyle={styles.input} />
-                            </View>
+                <Text style={styles.inputTitle}>Name</Text>
+                <TextInput style={styles.input} onChangeText={setName} value={name} placeholder="Name your food item" placeholderTextColor={Colors.DarkMode.text3}/>
+                
+                <View style={{ ...styles.row }}>
+                    <View style={styles.col}>
+                        <Text style={styles.inputTitle}>Price</Text>
+                        <View style={styles.row}>
+                            <View style={styles.dollarSignBox}><FontAwesome5 name="dollar-sign" style={{ color: Colors.DarkMode.green, fontSize: 16 }} /></View>
+                            <FakeCurrencyInput value={price} onChangeValue={(value) => setPrice(value == null ? 0 : value)} separator="." precision={2} minValue={0} maxValue={99.99} keyboardType="number-pad" style={{ textAlign: "right", fontSize: 14, color: price == 0 ? Colors.DarkMode.text3 : Colors.DarkMode.text1 }} containerStyle={styles.fakeInput} />
                         </View>
-                        <View style={styles.col}>
-                            <Text style={styles.inputTitle} >Portion Size</Text>
-                            <View style={styles.row}>
-                                <FakeCurrencyInput value={portionSize} onChangeValue={(value) => setPortionSize(value == null ? 0 : value)} precision={0} minValue={0} maxValue={99} keyboardType="number-pad" style={{ color: portionSize == 0 ? Colors.DarkMode.text3 : Colors.DarkMode.text1 }} containerStyle={styles.input} />
-                                <Pressable style={styles.toggleBtn} onPress={() => setPortionUnit( portionUnit === "oz" ? "ct" : "oz" )}>
-                                    <View style={{ ...styles.toggleIndicator, right: portionUnit === "oz" ? null : 0 }}></View>
-                                    <Text style={styles.toggleBtnText}>OZ       CT</Text>
+                    </View>
+                    <Text>...</Text>
+                    <View style={styles.col}>
+                        <Text style={styles.inputTitle} >Portion Size</Text>
+                        <View style={styles.row}>
+                            <FakeCurrencyInput value={portionSize} onChangeValue={(value) => setPortionSize(value == null ? 0 : value)} precision={0} minValue={0} maxValue={99} keyboardType="number-pad" style={{ textAlign: "right", fontSize: 14, color: portionSize == 0 ? Colors.DarkMode.text3 : Colors.DarkMode.text1 }} containerStyle={styles.fakeInput} />
+                            <View style={styles.toggleBtnBox}>
+                                <Pressable style={{ ...styles.toggleBtn, backgroundColor: portionUnit === "oz" ? Colors.DarkMode.text1 : null }} onPress={() => setPortionUnit( portionUnit === "oz" ? "ct" : "oz" )}>
+                                    <Text style={{ ...styles.btnText, color: portionUnit === "oz" ? Colors.DarkMode.background1 : Colors.DarkMode.text3 }}>OZ</Text>
+                                </Pressable>
+                                <Pressable style={{ ...styles.toggleBtn, backgroundColor: portionUnit === "ct" ? Colors.DarkMode.text1 : null }} onPress={() => setPortionUnit( portionUnit === "oz" ? "ct" : "oz" )}>
+                                    <Text style={{ ...styles.btnText, color: portionUnit === "ct" ? Colors.DarkMode.background1 : Colors.DarkMode.text3 }}>CT</Text>
                                 </Pressable>
                             </View>
                         </View>
                     </View>
+                </View>
 
-                    <Text style={styles.inputTitle}>Description</Text>
-                    <TextInput style={styles.input} onChangeText={setDescription} value={description} placeholder="Describe your food item in short and simple way..." placeholderTextColor={Colors.DarkMode.text3} multiline={true} maxLength={400}/>
+                <Text style={styles.inputTitle}>Description</Text>
+                <TextInput style={styles.input} onChangeText={setDescription} value={description} placeholder="Describe your food item in short and simple way..." placeholderTextColor={Colors.DarkMode.text3} multiline={true} maxLength={400}/>
 
-                    <View style={styles.row}>
-                        <Text style={styles.inputTitle} >Spicyness</Text>
-                        <FontAwesome5 name="pepper-hot" style={{ fontSize: 18, color: spiceLevel > 0 ? Colors.DarkMode.red : Colors.DarkMode.text2 }} />
-                        <FontAwesome5 name="pepper-hot" style={{ fontSize: 18, color: spiceLevel > 1 ? Colors.DarkMode.red : Colors.DarkMode.text2 }} />
-                        <FontAwesome5 name="pepper-hot" style={{ fontSize: 18, color: spiceLevel > 2 ? Colors.DarkMode.red : Colors.DarkMode.text2 }} />
-                    </View>
+                <Text style={styles.inputTitle}>Spicyness</Text>
+                <View style={styles.row}>
+                    <FontAwesome5 name="pepper-hot" style={{ fontSize: 16, color: Colors.DarkMode.red }} />
                     <View style={styles.sliderBox}>
                         <Slider
                             value={spiceLevel}
@@ -160,56 +161,89 @@ const AddNewFoodItemScreen = ({ navigation }) => {
                             minimumTrackTintColor={Colors.DarkMode.red}
                             thumbStyle={styles.thumb}
                             trackStyle={styles.track}
+                            trackMarks={[0,1,2,3]}
+                            renderTrackMarkComponent={(index) => {
+                                const trackMarks = [0,1,2,3]
+                                const currentMarkValue = trackMarks[index];
+                                const currentSliderValue = spiceLevel || (Array.isArray(spiceLevel) && spiceLevel[0]) || 0;
+                                const markColor = currentMarkValue > Math.max(currentSliderValue) ? Colors.DarkMode.background3 : Colors.DarkMode.red
+                                return <View style={{
+                                    borderColor: markColor,
+                                    borderRadius: 10,
+                                    borderWidth: 4, 
+                                    left: 2,
+                                }}/>
+                            }}
                         />
                     </View>
-
-                    <Text style={styles.inputTitle}>Diet Preferances</Text>
-                    <DropDownPicker
-                        open={openDropDown}
-                        value={dietPreference}
-                        items={dropDownItems}
-                        setOpen={setOpenDropDown}
-                        setValue={setDietPreference}
-                        setItems={setDropDownItems}
-                        listMode="SCROLLVIEW"
-                    />
-
-                    <Text style={styles.inputTitle}>Allergic Ingredients</Text>
-                    <View style={styles.row}>
-                        <Pressable style={{...styles.multipleSelect, backgroundColor: nuts ? Colors.DarkMode.text1 : Colors.DarkMode.background3}} onPress={() => setNuts(!nuts)}>
-                            <Text style={{...styles.multipleSelectText, color: nuts ? Colors.DarkMode.background1 : Colors.DarkMode.text3}}>Nuts</Text>
-                        </Pressable>
-                        
-                        <Pressable style={{...styles.multipleSelect, backgroundColor: dairy ? Colors.DarkMode.text1 : Colors.DarkMode.background3}} onPress={() => setDairy(!dairy)}>
-                            <Text style={{...styles.multipleSelectText, color: dairy ? Colors.DarkMode.background1 : Colors.DarkMode.text3}}>Dairy</Text>
-                        </Pressable>
-                        
-                        <Pressable style={{...styles.multipleSelect, backgroundColor: gluten ? Colors.DarkMode.text1 : Colors.DarkMode.background3}} onPress={() => setGluten(!gluten)}>
-                            <Text style={{...styles.multipleSelectText, color: gluten ? Colors.DarkMode.background1 : Colors.DarkMode.text3}}>Gluten</Text>
-                        </Pressable>
-                    </View>
-
-                    <Text style={styles.inputTitle}>Image</Text>
-                    <Pressable style={styles.btn} onPress={pickImageAsync} />
-                    <Image style={styles.photo} source={{ uri: photo}} />
-
-
-                    <View style={styles.row}>
-                        <Pressable style={styles.btn} onPress={add}>
-                            <Text style={styles.btnText}>Add</Text>
-                        </Pressable>
-                        <Pressable style={styles.btn} onPress={cancel}>
-                            <Text style={styles.btnText}>Cancel</Text>
-                        </Pressable>
-                    </View>
-
-                    <Text></Text>
-                    <Text></Text>
-                    <Text></Text>
-                    <Text></Text>
-                    <Text></Text>
-
+                    <FontAwesome5 name="pepper-hot" style={{ fontSize: 22, color: Colors.DarkMode.red }} />
                 </View>
+
+                <Text style={styles.inputTitle}>Diet Preferances</Text>
+                <DropDownPicker
+                    open={openDropDown}
+                    value={dietPreference}
+                    items={dropDownItems}
+                    setOpen={setOpenDropDown}
+                    setValue={setDietPreference}
+                    setItems={setDropDownItems}
+                    listMode="SCROLLVIEW"
+                    placeholder="Select diet type of food item"
+                    theme="DARK"
+                    style={{
+                        backgroundColor: Colors.DarkMode.background3,
+                        color: Colors.DarkMode.text1,
+                    }}
+                    textStyle={{
+                        fontSize: 14,
+                        color: dietPreference === null ? Colors.DarkMode.text3 : Colors.DarkMode.text1,
+                    }}
+                    dropDownContainerStyle={{
+                        backgroundColor: Colors.DarkMode.background3,
+                        borderWidth: 0,
+                        borderTopWidth: 2,
+                    }}
+                />
+
+                <Text style={styles.inputTitle}>Allergic Ingredients</Text>
+                <View style={styles.row}>
+                    <Pressable style={{...styles.multipleSelect, backgroundColor: nuts ? Colors.DarkMode.text1 : Colors.DarkMode.background3}} onPress={() => setNuts(!nuts)}>
+                        <Text style={{...styles.btnText, color: nuts ? Colors.DarkMode.background1 : Colors.DarkMode.text3}}>Nuts</Text>
+                    </Pressable>
+                    <Text>.</Text>
+                    <Pressable style={{...styles.multipleSelect, backgroundColor: dairy ? Colors.DarkMode.text1 : Colors.DarkMode.background3}} onPress={() => setDairy(!dairy)}>
+                        <Text style={{...styles.btnText, color: dairy ? Colors.DarkMode.background1 : Colors.DarkMode.text3}}>Dairy</Text>
+                    </Pressable>
+                    <Text>.</Text>
+                    <Pressable style={{...styles.multipleSelect, backgroundColor: gluten ? Colors.DarkMode.text1 : Colors.DarkMode.background3}} onPress={() => setGluten(!gluten)}>
+                        <Text style={{...styles.btnText, color: gluten ? Colors.DarkMode.background1 : Colors.DarkMode.text3}}>Gluten</Text>
+                    </Pressable>
+                </View>
+
+                <Text style={styles.inputTitle}>Image</Text>
+                <View style={styles.row}>
+                    <Pressable style={styles.btn1} onPress={pickImageAsync}>
+                        <Text style={styles.btnText}>Take A Photo</Text>
+                    </Pressable>
+                    <Text>...</Text>
+                    <Pressable style={styles.btn1} onPress={pickImageAsync}>
+                        <Text style={styles.btnText}>Choose A Photo</Text>
+                    </Pressable>
+                </View>
+                {
+                    photo !== null ? <Image style={styles.photo} source={{ uri: photo}}/> : null
+                }
+
+                <View style={{ ...styles.row, marginVertical: 30 }}>
+                    <Pressable style={styles.btn2} onPress={add}>
+                        <Text style={styles.btnText}>Add</Text>
+                    </Pressable>
+                    <Text>...</Text>
+                    <Pressable style={styles.btn2} onPress={cancel}>
+                        <Text style={styles.btnText}>Cancel</Text>
+                    </Pressable>
+                </View>
+
             </ScrollView>
         </KeyboardAvoidingView>
     )
@@ -218,69 +252,98 @@ const AddNewFoodItemScreen = ({ navigation }) => {
 const styles = StyleSheet.create({
     container:{
         backgroundColor: Colors.DarkMode.background2,
-        alignItems: "center",
-        paddingVertical: 20,
-        justifyContent: "center",
-    },
-    subContainer:{
-        width: "90%",
+        minHeight: "100%",
+        flexDirection: "column",
+        paddingHorizontal: 20,
     },
     row:{
+        display: "flex",
         flexDirection: "row",
-        justifyContent: "space-between",
-        flexWrap: "wrap",
+        justifyContent: "space-between", // horizontally
+        alignItems: "center",
+    },
+    col:{
+        display: "flex",
+        flexDirection: "column",
+        flexGrow: 1,
     },
 
     inputTitle: {
-        fontSize: 16,
+        fontSize: 14,
         color: Colors.DarkMode.text1,
-        marginBottom: 10,
+        marginBottom: 5,
+        marginTop: 30,
     },
     input: {
-        fontSize: 16,
+        fontSize: 14,
         color: Colors.DarkMode.text1,
         backgroundColor: Colors.DarkMode.background3,
         borderRadius: 10,
         padding: 10,
-        marginBottom: 30,
+        paddingTop: 10, // paddingTop needs to be added or weird bug with multiline inputs
+        flexGrow: 1,
+    },
+    fakeInput: {
+        width: 1, // this is needed to keep the input in place while typing
+        fontSize: 14,
+        color: Colors.DarkMode.text1,
+        backgroundColor: Colors.DarkMode.background3,
+        padding: 8,
+        flexGrow: 1,
+        borderRadius: 10,
+        textAlign: "right"
     },
 
-    btn:{
-        margin: 5,
+    toggleBtnBox: {
+        backgroundColor: Colors.DarkMode.background3, // gray
+        borderRadius: 10,
+        flexDirection: "row",
+        marginLeft: 2,
+    },
+    toggleBtn: {
+        borderRadius: 10,
         padding: 10,
-        width: 100,
+    },
+
+    btn1:{
+        padding: 10,
         borderRadius: 5,
-        backgroundColor: Colors.DarkMode.accent
+        backgroundColor: Colors.DarkMode.text1,
+        flexGrow: 1,
+    },
+    btn2:{
+        padding: 10,
+        borderRadius: 5,
+        backgroundColor: Colors.DarkMode.accent,
+        flexGrow: 1,
     },
     btnText:{
+        fontSize: 14,
+        color: Colors.DarkMode.background1,
         textAlign: "center",
         fontWeight: "bold",
-        color: Colors.DarkMode.background1
     },
 
     multipleSelect:{
         padding: 10,
-        minWidth: 100,
         borderRadius: 5,
-        marginBottom: 30,
-    },
-    multipleSelectText:{
-        fontSize: 16,
-        textAlign: "center",
+        flexGrow: 1,
     },
 
     thumb: {
         backgroundColor: Colors.DarkMode.red,
-        height: 15,
-        width: 15,
+        height: 10,
+        width: 10,
     },
     track: {
         backgroundColor: Colors.DarkMode.background3,
         borderRadius: 20,
-        height: 7,
+        height: 5,
     },
 
     photo: {
+        alignSelf: "center",
+        marginTop: 30,
         width: 100,
         height: 100,
     },
@@ -288,37 +351,14 @@ const styles = StyleSheet.create({
     dollarSignBox: {
         backgroundColor: Colors.DarkMode.background3,
         borderRadius: 10,
-        padding: 10,
-        marginBottom: 30,
-        marginRight: 5,
+        padding: 11,
+        marginRight: 2,
         justifyContent: "center",
     },
 
-    sliderBox:{
+    sliderBox: {
+        flexGrow: 1,
         paddingHorizontal: 10,
-        marginBottom: 30,
-    },
-
-    toggleBtn: {
-        backgroundColor: Colors.DarkMode.background3, // gray
-        // backgroundColor: Colors.DarkMode.text1, // white
-        borderRadius: 10,
-        paddingHorizontal: 15,
-        marginBottom: 30,
-        marginLeft: 5,
-        justifyContent: "center",
-    },
-    toggleBtnText: {
-        color: Colors.DarkMode.text1,
-    },
-    toggleIndicator:{
-        // backgroundColor: Colors.DarkMode.text1,
-        borderWidth: 1,
-        borderColor: Colors.DarkMode.text1,
-        borderRadius: 10,
-        width: "75%",
-        height: "100%",
-        position: "absolute",
     },
 })
 

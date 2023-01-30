@@ -13,5 +13,6 @@ To add local dependency:
 
 #### Ignore the following for now... 
 State Management 
+- React Query ****
 - Xstate
-- Recoil 
+- Recoil
