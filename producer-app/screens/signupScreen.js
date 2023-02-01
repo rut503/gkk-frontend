@@ -18,7 +18,6 @@ const SignupScreen = ({ navigation, route }) => {
     const [password, setPassword] = useState("")
 
     const signup = () => {
-        // navigation.navigate("MainDrawerNavigator")
         const producer = {
             firstName,
             lastName,
@@ -34,6 +33,7 @@ const SignupScreen = ({ navigation, route }) => {
             }
         }
         console.log(producer)
+        navigation.navigate("Home")
     }
 
     const login = () => {
@@ -43,16 +43,19 @@ const SignupScreen = ({ navigation, route }) => {
     const pickImageAsync = async () => {
         let result = await ImagePicker.launchImageLibraryAsync({
             allowsEditing: true,
-            quality: 1,
+            aspect: [1, 1],
+            base64: true,
+            quality: 0,
             mediaTypes: "Images"
         })
         if (!result.canceled) {
-            console.log(result)
+            console.log(result.assets[0].base64)
             setPhoto(result.assets[0].uri)
+            // result.assets[0].base64 // this is image base64 data
         }
-        else {
-            alert("You did not select any image.")
-        }
+        // else {
+        //     alert("You did not select any image.")
+        // }
     }
 
     return (

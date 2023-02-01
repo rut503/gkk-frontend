@@ -1,15 +1,14 @@
 export default {
-    WHITE: "#FFFFFF",
-    OFF_WHITE: "#BBBBBB",
-    LIGHT_GRAY: "#999999",
-
-    PRIMARY_BACKGROUND: "#111111",
+    // PRIMARY_BACKGROUND: "#151515",
+    PRIMARY_BACKGROUND: "#666",
     SECONDARY_BACKGROUND: "#000000",
     TERTIARY_BACKGROUND: "#333333",
 
     PRIMARY_TEXT: "#FFFFFF",
     SECONDARY_TEXT: "#BBBBBB",
     TERTIARY_TEXT: "#999999",
+    BUTTON_TEXT: "#000000",
+
 
 
     ACCENT: "#FFBC33",
@@ -22,7 +21,8 @@ export default {
 
     DarkMode:{
         background1: "#000000",
-        background2: "#111111",
+        // background2: "#151515",
+        background2: "#666",
         background3: "#333333",
         
         text1: "#FFFFFF",

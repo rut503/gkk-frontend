@@ -1,5 +1,5 @@
 import { useState } from "react"
-import { View, Text, StyleSheet, ScrollView, Image } from "react-native"
+import { View, Text, StyleSheet, ScrollView, Image, Pressable, Modal, Alert } from "react-native"
 import { FontAwesome5, FontAwesome } from "@expo/vector-icons"
 
 import Colors from "../constants/colors"
@@ -8,11 +8,25 @@ import ReviewComponent from "../components/reviewComponent"
 const FoodItemDetailsScreen = ({ navigation, route }) => {
     const [data, setData] = useState(route.params.data)
 
+    const [modalVisible, setModalVisible] = useState(false)
+
     return (
-        <ScrollView contentContainerStyle={{ backgroundColor: Colors.DarkMode.background2 }}>
+        <ScrollView contentContainerStyle={{ backgroundColor: Colors.PRIMARY_BACKGROUND }}>
+
+            <Modal style={styles.modal} animationType="none" transparent={false} visible={modalVisible} onRequestClose={() => setModalVisible(!modalVisible)}>
+                <Image resizeMode="contain" style={styles.foodImage} source={{ uri: "https://images.unsplash.com/photo-1567620905732-2d1ec7ab7445?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=780&q=80"}}/>
+                <Pressable
+                    style={{ position: "absolute", right: 0, bottom: 0, marginBottom: 25, marginRight: 25 }}
+                    onPress={() => setModalVisible(!modalVisible)}
+                >
+                    <FontAwesome name="times-circle" style={styles.closeBtn} />
+                </Pressable>
+            </Modal>
             
-            <Image style={styles.foodImage} source={{ uri: "https://images.unsplash.com/photo-1567620905732-2d1ec7ab7445?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=780&q=80"}}/>
-            
+            <Pressable style={{ height: "15%" }} onPress={() => setModalVisible(!modalVisible)}>
+                <Image style={{ flex: 1 }} source={{ uri: "https://images.unsplash.com/photo-1567620905732-2d1ec7ab7445?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=780&q=80"}}/>
+            </Pressable>
+
             <View style={styles.container}>
                 <View style={styles.row}>
                     <Text style={styles.tertiary}>{data.time}</Text>
@@ -66,7 +80,7 @@ const FoodItemDetailsScreen = ({ navigation, route }) => {
 const styles = StyleSheet.create({
     container: {
         padding: 10,
-        backgroundColor: Colors.DarkMode.background2,
+        backgroundColor: Colors.PRIMARY_BACKGROUND,
     },
     row:{
         margin: 5,
@@ -95,6 +109,17 @@ const styles = StyleSheet.create({
         fontWeight: "bold",
     },
 
+    modal: {
+        backgroundColor: Colors.PRIMARY_BACKGROUND,
+    },
+    foodImage: {
+        height: "100%", width: "100%", backgroundColor: Colors.PRIMARY_BACKGROUND
+    },
+    closeBtn: {
+        fontSize: 42,
+        color: Colors.PRIMARY_TEXT,
+    },
+
     dotIcon:{
         alignSelf: "center",
         textAlign: "center",
@@ -113,14 +138,22 @@ const styles = StyleSheet.create({
         fontSize: 14,
     },
 
-    foodImage:{
-        height: 200,
-    },
-
     text: {
         color: "white",
         fontSize: 24,
     },
+
+    button: {
+        borderRadius: 20,
+        padding: 10,
+        elevation: 2
+      },
+      buttonOpen: {
+        backgroundColor: "#F194FF",
+      },
+      buttonClose: {
+        backgroundColor: "#2196F3",
+      },
 })
 
 export default FoodItemDetailsScreen

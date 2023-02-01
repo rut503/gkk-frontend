@@ -5,7 +5,6 @@ import { createDrawerNavigator } from "@react-navigation/drawer"
 
 import { FontAwesome5, FontAwesome } from "@expo/vector-icons"
 import Colors from "../constants/colors"
-import DrawerButtonComponent from "../components/drawerButtonComponent"
 
 import FoodItemsScreen from "../screens/foodItemsScreen"
 import FoodItemDetailsScreen from "../screens/foodItemDetailsScreen"
@@ -14,8 +13,6 @@ import AddNewFoodItemScreen from "../screens/addNewFoodItemScreen"
 import MenuScreen from "../screens/menuScreen"
 
 import OrdersScreen from "../screens/ordersScreen"
-
-import PrepareScreen from "../screens/prepareScreen"
 
 import ProfileScreen from "../screens/profileScreen"
 
@@ -30,14 +27,14 @@ const FoodItemsStackNavigator = () => {
     return (
         <Stack.Navigator
             screenOptions={{
-                headerStyle:{ backgroundColor: Colors.DarkMode.background2 },
-                headerTitleStyle:{ color: Colors.DarkMode.text1 }
+                headerStyle:{ backgroundColor: Colors.PRIMARY_BACKGROUND },
+                headerTitleStyle:{ color: Colors.PRIMARY_TEXT }
             }}
         >
             <Stack.Screen name="Food Items" component={FoodItemsScreen} 
-                options={ ({ navigation }) => ({
-                    headerLeft: () => <DrawerButtonComponent navigation={navigation}/>
-                })}
+                // options={ ({ navigation }) => ({
+                //     headerLeft: () => <DrawerButtonComponent navigation={navigation}/>
+                // })}
             />
             <Stack.Screen name="Food Item Details" component={FoodItemDetailsScreen} />
             <Stack.Screen name="Add New Food Item" component={AddNewFoodItemScreen} />
@@ -49,14 +46,14 @@ const MenuStackNavigator = () => {
     return (
         <Stack.Navigator
             screenOptions={{
-                headerStyle:{ backgroundColor: Colors.DarkMode.background2 },
-                headerTitleStyle:{ color: Colors.DarkMode.text1 }
+                headerStyle:{ backgroundColor: Colors.PRIMARY_BACKGROUND },
+                headerTitleStyle:{ color: Colors.PRIMARY_TEXT }
             }}
         >
             <Stack.Screen name="Menu" component={MenuScreen} 
-                options={ ({ navigation }) => ({
-                    headerLeft: () => <DrawerButtonComponent navigation={navigation}/>
-                })}
+                // options={ ({ navigation }) => ({
+                //     headerLeft: () => <DrawerButtonComponent navigation={navigation}/>
+                // })}
             />
         </Stack.Navigator>
     )
@@ -66,31 +63,31 @@ const OrdersStackNavigator = () => {
     return (
         <Stack.Navigator
             screenOptions={{
-                headerStyle:{ backgroundColor: Colors.DarkMode.background2 },
-                headerTitleStyle:{ color: Colors.DarkMode.text1 }
+                headerStyle:{ backgroundColor: Colors.PRIMARY_BACKGROUND },
+                headerTitleStyle:{ color: Colors.PRIMARY_TEXT }
             }}
         >
             <Stack.Screen name="Orders" component={OrdersScreen} 
-                options={ ({ navigation }) => ({
-                    headerLeft: () => <DrawerButtonComponent navigation={navigation}/>
-                })}
+                // options={ ({ navigation }) => ({
+                //     headerLeft: () => <DrawerButtonComponent navigation={navigation}/>
+                // })}
             />
         </Stack.Navigator>
     )
 }
 
-const PrepareStackNavigator = () => {
+const ProfileStackNavigator = () => {
     return (
         <Stack.Navigator
             screenOptions={{
-                headerStyle:{ backgroundColor: Colors.DarkMode.background2 },
-                headerTitleStyle:{ color: Colors.DarkMode.text1 }
+                headerStyle:{ backgroundColor: Colors.PRIMARY_BACKGROUND },
+                headerTitleStyle:{ color: Colors.PRIMARY_TEXT }
             }}
         >
-            <Stack.Screen name="Prepare" component={PrepareScreen} 
-                options={ ({ navigation }) => ({
-                    headerLeft: () => <DrawerButtonComponent navigation={navigation}/>
-                })}
+            <Stack.Screen name="Profile" component={ProfileScreen} 
+                // options={ ({ navigation }) => ({
+                //     headerLeft: () => <DrawerButtonComponent navigation={navigation}/>
+                // })}
             />
         </Stack.Navigator>
     )
@@ -100,9 +97,9 @@ const MainTabNavigator = () => {
     return (
         <Tab.Navigator
             screenOptions={{
-                tabBarActiveTintColor: Colors.DarkMode.accent,
-                tabBarInactiveTintColor: Colors.DarkMode.text1,
-                tabBarStyle: { backgroundColor: Colors.DarkMode.background1 },
+                tabBarActiveTintColor: Colors.ACCENT,
+                tabBarInactiveTintColor: Colors.PRIMARY_TEXT,
+                tabBarStyle: { backgroundColor: Colors.SECONDARY_BACKGROUND },
                 headerShown: false,
             }}
         >
@@ -131,49 +128,49 @@ const MainTabNavigator = () => {
                 }}
             />
             <Tab.Screen 
-                name="Prepare Stack Navigator" 
-                component={PrepareStackNavigator} 
+                name="Profile Stack Navigator" 
+                component={ProfileStackNavigator} 
                 options={{
-                    tabBarLabel: "Prepare",
-                    tabBarIcon: ({ color, size }) => <FontAwesome5 name="concierge-bell" color={color} size={size}/>
+                    tabBarLabel: "Profile",
+                    tabBarIcon: ({ color, size }) => <FontAwesome5 name="user-alt" color={color} size={size}/>
                 }}
             />
         </Tab.Navigator>
     )
 }
 
-const MainDrawerNavigator = () => {
-    return (
-        <Drawer.Navigator
-            screenOptions={{
-                headerStyle:{ backgroundColor: Colors.DarkMode.background2 },
-                headerTitleStyle:{ color: Colors.DarkMode.text1 },
-                drawerStyle: {
-                    backgroundColor: Colors.DarkMode.background2,
-                    width: 200,
-                },
-                drawerType: "back",
-                drawerActiveTintColor: Colors.DarkMode.accent,
-                drawerInactiveTintColor: Colors.DarkMode.text2,
-            }}
-        >
-            <Drawer.Screen name="Home" component={MainTabNavigator} options={{ headerShown: false }} />
-            <Drawer.Screen name="Profile" component={ProfileScreen} />
-        </Drawer.Navigator>
-    )
-}
+// const MainDrawerNavigator = () => {
+//     return (
+//         <Drawer.Navigator
+//             screenOptions={{
+//                 headerStyle:{ backgroundColor: Colors.PRIMARY_BACKGROUND },
+//                 headerTitleStyle:{ color: Colors.PRIMARY_TEXT },
+//                 drawerStyle: {
+//                     backgroundColor: Colors.PRIMARY_BACKGROUND,
+//                     width: 200,
+//                 },
+//                 drawerType: "back",
+//                 drawerActiveTintColor: Colors.DarkMode.accent,
+//                 drawerInactiveTintColor: Colors.DarkMode.text2,
+//             }}
+//         >
+//             <Drawer.Screen name="Home" component={MainTabNavigator} options={{ headerShown: false }} />
+//             <Drawer.Screen name="Profile" component={ProfileScreen} />
+//         </Drawer.Navigator>
+//     )
+// }
 
 const MainLandingScreenNavigator = () => {
     return (
         <Stack.Navigator
             screenOptions={{
-                headerStyle:{ backgroundColor: Colors.DarkMode.background2 },
-                headerTitleStyle:{ color: Colors.DarkMode.text1 }
+                headerStyle:{ backgroundColor: Colors.PRIMARY_BACKGROUND },
+                headerTitleStyle:{ color: Colors.PRIMARY_TEXT }
             }}
         >
             <Stack.Screen name="Login" component={LoginScreen} />
             <Stack.Screen name="Signup" component={SignupScreen} />
-            <Stack.Screen name="MainDrawerNavigator" component={MainDrawerNavigator} options={{headerShown: false}}/>
+            <Stack.Screen name="Home" component={MainTabNavigator} options={{headerShown: false}}/>
         </Stack.Navigator>
     )
 }

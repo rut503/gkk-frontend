@@ -8,7 +8,7 @@ const LoginScreen = ({ navigation, route }) => {
     const [password, setPassword] = useState("")
 
     const login = () => {
-        navigation.navigate("MainDrawerNavigator")
+        navigation.navigate("Home")
     }
 
     const signup = () => {
