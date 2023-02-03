@@ -6,7 +6,7 @@ import Colors from "../constants/colors"
 import ReviewComponent from "../components/reviewComponent"
 
 const FoodItemDetailsScreen = ({ navigation, route }) => {
-    const [data, setData] = useState(route.params.data)
+    const { data } = route.params
 
     const [modalVisible, setModalVisible] = useState(false)
 

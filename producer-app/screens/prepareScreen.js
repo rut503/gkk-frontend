@@ -17,7 +17,7 @@ const OrdersScreen = ({ navigation }) => {
             <SectionList
                 sections={DATA}
                 keyExtractor={(item, index) => item + index}
-                renderItem={({ item }) => <FoodOrderComponent style={styles.foodOrder} data={item}/>}
+                renderItem={({ item }) => <FoodOrderComponent style={styles.foodOrder} navigation={navigation} data={item}/>}
                 renderSectionHeader={({ section: { date } }) => <Header date={date}/>}
                 renderSectionFooter={() => <View style={styles.footer}>
                     <FontAwesome name="circle" style={styles.dotIcon}/>

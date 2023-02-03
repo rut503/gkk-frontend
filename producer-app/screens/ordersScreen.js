@@ -12,7 +12,7 @@ const OrdersScreen = ({ navigation }) => {
     }else{
         pendingOrdersFlatList = <FlatList
             data={DATA}
-            renderItem={({ item: { title } }) => <FoodOrderComponent style={styles.foodOrder} data={title}/>}
+            renderItem={({ item: { title } }) => <FoodOrderComponent style={styles.foodOrder} navigation={navigation} data={title}/>}
             keyExtractor={item => item.id}
         />
     }
@@ -31,7 +31,7 @@ const OrdersScreen = ({ navigation }) => {
             </View>
 
             {pendingOrdersFlatList}
-            
+
         </View>
     )
 }

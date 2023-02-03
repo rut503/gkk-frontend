@@ -15,6 +15,8 @@ import MenuScreen from "../screens/menuScreen"
 import OrdersScreen from "../screens/ordersScreen"
 import PreviousOrdersScreen from "../screens/previousOrdersScreen"
 
+import OrderDetailsScreen from "../screens/orderDetailsScreen"
+
 import PrepareScreen from "../screens/prepareScreen"
 
 import ProfileScreen from "../screens/profileScreen"
@@ -76,6 +78,7 @@ const OrdersStackNavigator = () => {
                 // })}
             />
             <Stack.Screen name="Previous Orders" component={PreviousOrdersScreen} />
+            <Stack.Screen name="Order Details" component={OrderDetailsScreen} />
         </Stack.Navigator>
     )
 }
@@ -90,9 +93,10 @@ const PrepareStackNavigator = () => {
         >
             <Stack.Screen name="Prepare" component={PrepareScreen} 
                 // options={ ({ navigation }) => ({
-                //     headerLeft: () => <DrawerButtonComponent navigation={navigation}/>
+                //     headerLeft: null
                 // })}
             />
+            <Stack.Screen name="Order Details" component={OrderDetailsScreen} />
         </Stack.Navigator>
     )
 }

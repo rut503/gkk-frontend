@@ -12,7 +12,7 @@ const PreviousOrdersScreen = ({ navigation }) => {
             </View>
             <FlatList
                 data={DATA}
-                renderItem={({ item: { title } }) => <FoodOrderComponent style={styles.foodOrder} data={title}/>}
+                renderItem={({ item: { title } }) => <FoodOrderComponent style={styles.foodOrder} navigation={navigation} data={title}/>}
                 keyExtractor={item => item.id}
             />
         </View>

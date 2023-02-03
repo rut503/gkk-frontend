@@ -4,8 +4,9 @@ import { FontAwesome5, FontAwesome } from "@expo/vector-icons"
 import Colors from "../constants/colors"
 
 const FoodOrderComponent = ({ navigation, style, data }) => {
+    console.log(data)
     return (
-        <TouchableOpacity onPress={() => navigation.navigate("Food Item Details", {data})}>
+        <TouchableOpacity onPress={() => navigation.navigate("Order Details", {data})}>
             <View style={{...styles.container, ...style}}>
                 <Image style={styles.image} source={{url: data.photo}} />
 

@@ -17,12 +17,12 @@ const TestModal = ({ visible, setModalVisible }) => {
             >
                 <View style={styles.container}>
                     <View style={styles.subContainer}>
-                        <Text style={{ color: Colors.DarkMode.text1 }}>Hello</Text>
+                        <Text style={{ color: Colors.PRIMARY_TEXT }}>Hello</Text>
                         <Pressable onPress={() => setModalVisible(false)}>
-                            <Text style={{ color: Colors.DarkMode.text1 }}>Cancel</Text>
+                            <Text style={{ color: Colors.PRIMARY_TEXT }}>Cancel</Text>
                         </Pressable>
                         <Pressable onPress={() => setModalVisible(false)}>
-                            <Text style={{ color: Colors.DarkMode.text1 }}>Add</Text>
+                            <Text style={{ color: Colors.PRIMARY_TEXT }}>Add</Text>
                         </Pressable>
                     </View>
                 </View>
@@ -41,7 +41,7 @@ const styles = StyleSheet.create({
         padding: 20,
         justifyContent: "center",
         alignItems: "center",
-        backgroundColor: Colors.DarkMode.background2,
+        backgroundColor: Colors.PRIMARY_BACKGROUND,
         borderRadius: 5,
         shadowColor: "#777777",
         shadowOffset:{ width: 0, height: 2 },

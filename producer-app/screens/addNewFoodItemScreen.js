@@ -10,6 +10,7 @@ import Colors from "../constants/colors"
 
 const AddNewFoodItemScreen = ({ navigation }) => {
 
+    // dietPreference
     const [openDropDown, setOpenDropDown] = useState(false)
     const [dietPreference, setDietPreference] = useState(null)
     const [dropDownItems, setDropDownItems] = useState([
@@ -19,31 +20,18 @@ const AddNewFoodItemScreen = ({ navigation }) => {
         {label: "Non-vegetarian", value: "Non-vegetarian"}
     ])
 
-    // const [openPU, setOpenPU] = useState(false)
-    // const [portionUnit, setPortionUnit] = useState(null)
-    // const [itemsPU, setItemsPU] = useState([
-    //     {label: "oz", value: "oz"},
-    //     {label: "ct", value: "ct"},
-    // ])
-    const [portionUnit, setPortionUnit] = useState("oz")
-
-
     const [name, setName] = useState("")
     const [description, setDescription] = useState("")
     const [price, setPrice] = useState(0)
     const [photo, setPhoto] = useState(null)
     const [portionSize, setPortionSize] = useState(0)
     const [spiceLevel, setSpiceLevel] = useState(0)
-    // const [allergies, setAllergies] = useState([])
-    // const [dietPreference, setDietPreference] = useState([])
-
-    // dietPreferences
-    // const [vegan, setVegan] = useState(false)
-    // const [vegetarian, setVegetarian] = useState(false)
-    // const [eggitarian, setEggitarian] = useState(false)
-    // const [nonVegetarian, setNonVegetarian] = useState(false)
-
+    
+    // portionUnit
+    const [portionUnit, setPortionUnit] = useState("oz")
+    
     // allergies
+    // const [allergies, setAllergies] = useState([])
     const [nuts, setNuts] = useState(false)
     const [dairy, setDairy] = useState(false)
     const [gluten, setGluten] = useState(false)
@@ -108,10 +96,6 @@ const AddNewFoodItemScreen = ({ navigation }) => {
         }
     }
 
-    const test = (value) => {
-        console.log(value)
-    }
-
     return (
         <KeyboardAvoidingView behavior={Platform.OS === "ios" ? "padding" : "height"} keyboardVerticalOffset={70}>
             <ScrollView contentContainerStyle={styles.container}>
@@ -134,10 +118,10 @@ const AddNewFoodItemScreen = ({ navigation }) => {
                             <FakeCurrencyInput value={portionSize} onChangeValue={(value) => setPortionSize(value == null ? 0 : value)} precision={0} minValue={0} maxValue={99} keyboardType="number-pad" style={{ textAlign: "right", fontSize: 14, color: portionSize == 0 ? Colors.TERTIARY_TEXT : Colors.PRIMARY_TEXT }} containerStyle={styles.fakeInput} />
                             <View style={styles.toggleBtnBox}>
                                 <Pressable style={{ ...styles.toggleBtn, backgroundColor: portionUnit === "oz" ? Colors.PRIMARY_TEXT : null }} onPress={() => setPortionUnit( portionUnit === "oz" ? "ct" : "oz" )}>
-                                    <Text style={{ ...styles.btnText, color: portionUnit === "oz" ? Colors.DarkMode.background1 : Colors.TERTIARY_TEXT }}>OZ</Text>
+                                    <Text style={{ ...styles.btnText, color: portionUnit === "oz" ? Colors.BUTTON_TEXT : Colors.TERTIARY_TEXT }}>OZ</Text>
                                 </Pressable>
                                 <Pressable style={{ ...styles.toggleBtn, backgroundColor: portionUnit === "ct" ? Colors.PRIMARY_TEXT : null }} onPress={() => setPortionUnit( portionUnit === "oz" ? "ct" : "oz" )}>
-                                    <Text style={{ ...styles.btnText, color: portionUnit === "ct" ? Colors.DarkMode.background1 : Colors.TERTIARY_TEXT }}>CT</Text>
+                                    <Text style={{ ...styles.btnText, color: portionUnit === "ct" ? Colors.BUTTON_TEXT : Colors.TERTIARY_TEXT }}>CT</Text>
                                 </Pressable>
                             </View>
                         </View>
@@ -208,15 +192,15 @@ const AddNewFoodItemScreen = ({ navigation }) => {
                 <Text style={styles.inputTitle}>Allergic Ingredients</Text>
                 <View style={styles.row}>
                     <Pressable style={{...styles.multipleSelect, backgroundColor: nuts ? Colors.PRIMARY_TEXT : Colors.TERTIARY_BACKGROUND}} onPress={() => setNuts(!nuts)}>
-                        <Text style={{...styles.btnText, color: nuts ? Colors.DarkMode.background1 : Colors.TERTIARY_TEXT}}>Nuts</Text>
+                        <Text style={{...styles.btnText, color: nuts ? Colors.BUTTON_TEXT : Colors.TERTIARY_TEXT}}>Nuts</Text>
                     </Pressable>
                     <Text>.</Text>
                     <Pressable style={{...styles.multipleSelect, backgroundColor: dairy ? Colors.PRIMARY_TEXT : Colors.TERTIARY_BACKGROUND}} onPress={() => setDairy(!dairy)}>
-                        <Text style={{...styles.btnText, color: dairy ? Colors.DarkMode.background1 : Colors.TERTIARY_TEXT}}>Dairy</Text>
+                        <Text style={{...styles.btnText, color: dairy ? Colors.BUTTON_TEXT : Colors.TERTIARY_TEXT}}>Dairy</Text>
                     </Pressable>
                     <Text>.</Text>
                     <Pressable style={{...styles.multipleSelect, backgroundColor: gluten ? Colors.PRIMARY_TEXT : Colors.TERTIARY_BACKGROUND}} onPress={() => setGluten(!gluten)}>
-                        <Text style={{...styles.btnText, color: gluten ? Colors.DarkMode.background1 : Colors.TERTIARY_TEXT}}>Gluten</Text>
+                        <Text style={{...styles.btnText, color: gluten ? Colors.BUTTON_TEXT : Colors.TERTIARY_TEXT}}>Gluten</Text>
                     </Pressable>
                 </View>
 
@@ -319,7 +303,7 @@ const styles = StyleSheet.create({
     },
     btnText:{
         fontSize: 14,
-        color: Colors.DarkMode.background1,
+        color: Colors.BUTTON_TEXT,
         textAlign: "center",
         fontWeight: "bold",
     },
