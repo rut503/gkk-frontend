@@ -57,7 +57,7 @@ const ProfileScreen = () => {
 
 const styles = StyleSheet.create({
     scrollView:{
-        backgroundColor: Colors.DarkMode.background2,
+        backgroundColor: Colors.PRIMARY_BACKGROUND,
     },
     container: {
         justifyContent: "center",
@@ -74,7 +74,7 @@ const styles = StyleSheet.create({
         marginVertical: 20,
         fontSize: 24,
         fontWeight: "bold",
-        color: Colors.DarkMode.text1,
+        color: Colors.PRIMARY_TEXT,
     },
 
     grid:{
@@ -89,10 +89,10 @@ const styles = StyleSheet.create({
         textAlign: "center",
         width: 40,
         fontSize: 20,
-        color: Colors.DarkMode.accent,
+        color: Colors.ACCENT,
     },
     infoCol:{
-        color: Colors.DarkMode.text1,
+        color: Colors.PRIMARY_TEXT,
         fontSize: 14,
         fontWeight: "bold",
         flexShrink: 1
@@ -102,13 +102,13 @@ const styles = StyleSheet.create({
         marginVertical: 10,
         height: 1,
         width: "95%",
-        backgroundColor: Colors.DarkMode.text1,
+        backgroundColor: Colors.PRIMARY_TEXT,
     },
 
     title: {
         marginVertical: 10,
         fontSize: 24,
-        color: Colors.DarkMode.text1,
+        color: Colors.PRIMARY_TEXT,
         fontWeight: "bold",
     },
     stars:{
@@ -116,11 +116,11 @@ const styles = StyleSheet.create({
     },
     star: {
         fontSize: 20,
-        color: Colors.DarkMode.accent,
+        color: Colors.ACCENT,
     },
     subTitle:{
         fontSize: 14,
-        color: Colors.DarkMode.text1,
+        color: Colors.PRIMARY_TEXT,
         fontWeight: "bold",
         marginVertical: 10,
     }

@@ -117,27 +117,27 @@ const AddNewFoodItemScreen = ({ navigation }) => {
             <ScrollView contentContainerStyle={styles.container}>
 
                 <Text style={styles.inputTitle}>Name</Text>
-                <TextInput style={styles.input} onChangeText={setName} value={name} placeholder="Name your food item" placeholderTextColor={Colors.DarkMode.text3}/>
+                <TextInput style={styles.input} onChangeText={setName} value={name} placeholder="Name your food item" placeholderTextColor={Colors.TERTIARY_TEXT}/>
                 
                 <View style={{ ...styles.row }}>
                     <View style={styles.col}>
                         <Text style={styles.inputTitle}>Price</Text>
                         <View style={styles.row}>
-                            <View style={styles.dollarSignBox}><FontAwesome5 name="dollar-sign" style={{ color: Colors.DarkMode.green, fontSize: 16 }} /></View>
-                            <FakeCurrencyInput value={price} onChangeValue={(value) => setPrice(value == null ? 0 : value)} separator="." precision={2} minValue={0} maxValue={99.99} keyboardType="number-pad" style={{ textAlign: "right", fontSize: 14, color: price == 0 ? Colors.DarkMode.text3 : Colors.DarkMode.text1 }} containerStyle={styles.fakeInput} />
+                            <View style={styles.dollarSignBox}><FontAwesome5 name="dollar-sign" style={{ color: Colors.GREEN, fontSize: 16 }} /></View>
+                            <FakeCurrencyInput value={price} onChangeValue={(value) => setPrice(value == null ? 0 : value)} separator="." precision={2} minValue={0} maxValue={99.99} keyboardType="number-pad" style={{ textAlign: "right", fontSize: 14, color: price == 0 ? Colors.TERTIARY_TEXT : Colors.PRIMARY_TEXT }} containerStyle={styles.fakeInput} />
                         </View>
                     </View>
                     <Text>...</Text>
                     <View style={styles.col}>
                         <Text style={styles.inputTitle} >Portion Size</Text>
                         <View style={styles.row}>
-                            <FakeCurrencyInput value={portionSize} onChangeValue={(value) => setPortionSize(value == null ? 0 : value)} precision={0} minValue={0} maxValue={99} keyboardType="number-pad" style={{ textAlign: "right", fontSize: 14, color: portionSize == 0 ? Colors.DarkMode.text3 : Colors.DarkMode.text1 }} containerStyle={styles.fakeInput} />
+                            <FakeCurrencyInput value={portionSize} onChangeValue={(value) => setPortionSize(value == null ? 0 : value)} precision={0} minValue={0} maxValue={99} keyboardType="number-pad" style={{ textAlign: "right", fontSize: 14, color: portionSize == 0 ? Colors.TERTIARY_TEXT : Colors.PRIMARY_TEXT }} containerStyle={styles.fakeInput} />
                             <View style={styles.toggleBtnBox}>
-                                <Pressable style={{ ...styles.toggleBtn, backgroundColor: portionUnit === "oz" ? Colors.DarkMode.text1 : null }} onPress={() => setPortionUnit( portionUnit === "oz" ? "ct" : "oz" )}>
-                                    <Text style={{ ...styles.btnText, color: portionUnit === "oz" ? Colors.DarkMode.background1 : Colors.DarkMode.text3 }}>OZ</Text>
+                                <Pressable style={{ ...styles.toggleBtn, backgroundColor: portionUnit === "oz" ? Colors.PRIMARY_TEXT : null }} onPress={() => setPortionUnit( portionUnit === "oz" ? "ct" : "oz" )}>
+                                    <Text style={{ ...styles.btnText, color: portionUnit === "oz" ? Colors.DarkMode.background1 : Colors.TERTIARY_TEXT }}>OZ</Text>
                                 </Pressable>
-                                <Pressable style={{ ...styles.toggleBtn, backgroundColor: portionUnit === "ct" ? Colors.DarkMode.text1 : null }} onPress={() => setPortionUnit( portionUnit === "oz" ? "ct" : "oz" )}>
-                                    <Text style={{ ...styles.btnText, color: portionUnit === "ct" ? Colors.DarkMode.background1 : Colors.DarkMode.text3 }}>CT</Text>
+                                <Pressable style={{ ...styles.toggleBtn, backgroundColor: portionUnit === "ct" ? Colors.PRIMARY_TEXT : null }} onPress={() => setPortionUnit( portionUnit === "oz" ? "ct" : "oz" )}>
+                                    <Text style={{ ...styles.btnText, color: portionUnit === "ct" ? Colors.DarkMode.background1 : Colors.TERTIARY_TEXT }}>CT</Text>
                                 </Pressable>
                             </View>
                         </View>
@@ -145,11 +145,11 @@ const AddNewFoodItemScreen = ({ navigation }) => {
                 </View>
 
                 <Text style={styles.inputTitle}>Description</Text>
-                <TextInput style={styles.input} onChangeText={setDescription} value={description} placeholder="Describe your food item in short and simple way..." placeholderTextColor={Colors.DarkMode.text3} multiline={true} maxLength={400}/>
+                <TextInput style={styles.input} onChangeText={setDescription} value={description} placeholder="Describe your food item in short and simple way..." placeholderTextColor={Colors.TERTIARY_TEXT} multiline={true} maxLength={400}/>
 
                 <Text style={styles.inputTitle}>Spicyness</Text>
                 <View style={styles.row}>
-                    <FontAwesome5 name="pepper-hot" style={{ fontSize: 16, color: Colors.DarkMode.red }} />
+                    <FontAwesome5 name="pepper-hot" style={{ fontSize: 16, color: Colors.RED }} />
                     <View style={styles.sliderBox}>
                         <Slider
                             value={spiceLevel}
@@ -158,7 +158,7 @@ const AddNewFoodItemScreen = ({ navigation }) => {
                             minimumValue={0}
                             step={1}
                             animateTransitions
-                            minimumTrackTintColor={Colors.DarkMode.red}
+                            minimumTrackTintColor={Colors.RED}
                             thumbStyle={styles.thumb}
                             trackStyle={styles.track}
                             trackMarks={[0,1,2,3]}
@@ -166,7 +166,7 @@ const AddNewFoodItemScreen = ({ navigation }) => {
                                 const trackMarks = [0,1,2,3]
                                 const currentMarkValue = trackMarks[index];
                                 const currentSliderValue = spiceLevel || (Array.isArray(spiceLevel) && spiceLevel[0]) || 0;
-                                const markColor = currentMarkValue > Math.max(currentSliderValue) ? Colors.DarkMode.background3 : Colors.DarkMode.red
+                                const markColor = currentMarkValue > Math.max(currentSliderValue) ? Colors.TERTIARY_BACKGROUND : Colors.RED
                                 return <View style={{
                                     borderColor: markColor,
                                     borderRadius: 10,
@@ -176,7 +176,7 @@ const AddNewFoodItemScreen = ({ navigation }) => {
                             }}
                         />
                     </View>
-                    <FontAwesome5 name="pepper-hot" style={{ fontSize: 22, color: Colors.DarkMode.red }} />
+                    <FontAwesome5 name="pepper-hot" style={{ fontSize: 22, color: Colors.RED }} />
                 </View>
 
                 <Text style={styles.inputTitle}>Diet Preferances</Text>
@@ -191,15 +191,15 @@ const AddNewFoodItemScreen = ({ navigation }) => {
                     placeholder="Select diet type of food item"
                     theme="DARK"
                     style={{
-                        backgroundColor: Colors.DarkMode.background3,
-                        color: Colors.DarkMode.text1,
+                        backgroundColor: Colors.TERTIARY_BACKGROUND,
+                        color: Colors.PRIMARY_TEXT,
                     }}
                     textStyle={{
                         fontSize: 14,
-                        color: dietPreference === null ? Colors.DarkMode.text3 : Colors.DarkMode.text1,
+                        color: dietPreference === null ? Colors.TERTIARY_TEXT : Colors.PRIMARY_TEXT,
                     }}
                     dropDownContainerStyle={{
-                        backgroundColor: Colors.DarkMode.background3,
+                        backgroundColor: Colors.TERTIARY_BACKGROUND,
                         borderWidth: 0,
                         borderTopWidth: 2,
                     }}
@@ -207,16 +207,16 @@ const AddNewFoodItemScreen = ({ navigation }) => {
 
                 <Text style={styles.inputTitle}>Allergic Ingredients</Text>
                 <View style={styles.row}>
-                    <Pressable style={{...styles.multipleSelect, backgroundColor: nuts ? Colors.DarkMode.text1 : Colors.DarkMode.background3}} onPress={() => setNuts(!nuts)}>
-                        <Text style={{...styles.btnText, color: nuts ? Colors.DarkMode.background1 : Colors.DarkMode.text3}}>Nuts</Text>
+                    <Pressable style={{...styles.multipleSelect, backgroundColor: nuts ? Colors.PRIMARY_TEXT : Colors.TERTIARY_BACKGROUND}} onPress={() => setNuts(!nuts)}>
+                        <Text style={{...styles.btnText, color: nuts ? Colors.DarkMode.background1 : Colors.TERTIARY_TEXT}}>Nuts</Text>
                     </Pressable>
                     <Text>.</Text>
-                    <Pressable style={{...styles.multipleSelect, backgroundColor: dairy ? Colors.DarkMode.text1 : Colors.DarkMode.background3}} onPress={() => setDairy(!dairy)}>
-                        <Text style={{...styles.btnText, color: dairy ? Colors.DarkMode.background1 : Colors.DarkMode.text3}}>Dairy</Text>
+                    <Pressable style={{...styles.multipleSelect, backgroundColor: dairy ? Colors.PRIMARY_TEXT : Colors.TERTIARY_BACKGROUND}} onPress={() => setDairy(!dairy)}>
+                        <Text style={{...styles.btnText, color: dairy ? Colors.DarkMode.background1 : Colors.TERTIARY_TEXT}}>Dairy</Text>
                     </Pressable>
                     <Text>.</Text>
-                    <Pressable style={{...styles.multipleSelect, backgroundColor: gluten ? Colors.DarkMode.text1 : Colors.DarkMode.background3}} onPress={() => setGluten(!gluten)}>
-                        <Text style={{...styles.btnText, color: gluten ? Colors.DarkMode.background1 : Colors.DarkMode.text3}}>Gluten</Text>
+                    <Pressable style={{...styles.multipleSelect, backgroundColor: gluten ? Colors.PRIMARY_TEXT : Colors.TERTIARY_BACKGROUND}} onPress={() => setGluten(!gluten)}>
+                        <Text style={{...styles.btnText, color: gluten ? Colors.DarkMode.background1 : Colors.TERTIARY_TEXT}}>Gluten</Text>
                     </Pressable>
                 </View>
 
@@ -251,7 +251,7 @@ const AddNewFoodItemScreen = ({ navigation }) => {
 
 const styles = StyleSheet.create({
     container:{
-        backgroundColor: Colors.DarkMode.background2,
+        backgroundColor: Colors.PRIMARY_BACKGROUND,
         minHeight: "100%",
         flexDirection: "column",
         paddingHorizontal: 20,
@@ -270,14 +270,14 @@ const styles = StyleSheet.create({
 
     inputTitle: {
         fontSize: 14,
-        color: Colors.DarkMode.text1,
+        color: Colors.PRIMARY_TEXT,
         marginBottom: 5,
         marginTop: 30,
     },
     input: {
         fontSize: 14,
-        color: Colors.DarkMode.text1,
-        backgroundColor: Colors.DarkMode.background3,
+        color: Colors.PRIMARY_TEXT,
+        backgroundColor: Colors.TERTIARY_BACKGROUND,
         borderRadius: 10,
         padding: 10,
         paddingTop: 10, // paddingTop needs to be added or weird bug with multiline inputs
@@ -286,8 +286,8 @@ const styles = StyleSheet.create({
     fakeInput: {
         width: 1, // this is needed to keep the input in place while typing
         fontSize: 14,
-        color: Colors.DarkMode.text1,
-        backgroundColor: Colors.DarkMode.background3,
+        color: Colors.PRIMARY_TEXT,
+        backgroundColor: Colors.TERTIARY_BACKGROUND,
         padding: 8,
         flexGrow: 1,
         borderRadius: 10,
@@ -295,7 +295,7 @@ const styles = StyleSheet.create({
     },
 
     toggleBtnBox: {
-        backgroundColor: Colors.DarkMode.background3, // gray
+        backgroundColor: Colors.TERTIARY_BACKGROUND,
         borderRadius: 10,
         flexDirection: "row",
         marginLeft: 2,
@@ -308,13 +308,13 @@ const styles = StyleSheet.create({
     btn1:{
         padding: 10,
         borderRadius: 5,
-        backgroundColor: Colors.DarkMode.text1,
+        backgroundColor: Colors.PRIMARY_TEXT,
         flexGrow: 1,
     },
     btn2:{
         padding: 10,
         borderRadius: 5,
-        backgroundColor: Colors.DarkMode.accent,
+        backgroundColor: Colors.ACCENT,
         flexGrow: 1,
     },
     btnText:{
@@ -331,12 +331,12 @@ const styles = StyleSheet.create({
     },
 
     thumb: {
-        backgroundColor: Colors.DarkMode.red,
+        backgroundColor: Colors.RED,
         height: 10,
         width: 10,
     },
     track: {
-        backgroundColor: Colors.DarkMode.background3,
+        backgroundColor: Colors.TERTIARY_BACKGROUND,
         borderRadius: 20,
         height: 5,
     },
@@ -349,7 +349,7 @@ const styles = StyleSheet.create({
     },
 
     dollarSignBox: {
-        backgroundColor: Colors.DarkMode.background3,
+        backgroundColor: Colors.TERTIARY_BACKGROUND,
         borderRadius: 10,
         padding: 11,
         marginRight: 2,

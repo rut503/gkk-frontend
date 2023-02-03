@@ -15,7 +15,7 @@ const styles = StyleSheet.create({
         flex: 1,
         justifyContent: "center",
         alignItems: "center",
-        backgroundColor: Colors.DarkMode.background2,
+        backgroundColor: Colors.PRIMARY_BACKGROUND,
     },
     text: {
         color: "white",

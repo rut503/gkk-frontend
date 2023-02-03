@@ -13,6 +13,9 @@ import AddNewFoodItemScreen from "../screens/addNewFoodItemScreen"
 import MenuScreen from "../screens/menuScreen"
 
 import OrdersScreen from "../screens/ordersScreen"
+import PreviousOrdersScreen from "../screens/previousOrdersScreen"
+
+import PrepareScreen from "../screens/prepareScreen"
 
 import ProfileScreen from "../screens/profileScreen"
 
@@ -72,6 +75,24 @@ const OrdersStackNavigator = () => {
                 //     headerLeft: () => <DrawerButtonComponent navigation={navigation}/>
                 // })}
             />
+            <Stack.Screen name="Previous Orders" component={PreviousOrdersScreen} />
+        </Stack.Navigator>
+    )
+}
+
+const PrepareStackNavigator = () => {
+    return (
+        <Stack.Navigator
+            screenOptions={{
+                headerStyle:{ backgroundColor: Colors.PRIMARY_BACKGROUND },
+                headerTitleStyle:{ color: Colors.PRIMARY_TEXT }
+            }}
+        >
+            <Stack.Screen name="Prepare" component={PrepareScreen} 
+                // options={ ({ navigation }) => ({
+                //     headerLeft: () => <DrawerButtonComponent navigation={navigation}/>
+                // })}
+            />
         </Stack.Navigator>
     )
 }
@@ -125,6 +146,14 @@ const MainTabNavigator = () => {
                 options={{
                     tabBarLabel: "Orders",
                     tabBarIcon: ({ color, size }) => <FontAwesome5 name="vote-yea" color={color} size={size}/>
+                }}
+            />
+            <Tab.Screen 
+                name="Prepare Stack Navigator" 
+                component={PrepareStackNavigator} 
+                options={{
+                    tabBarLabel: "Prepare",
+                    tabBarIcon: ({ color, size }) => <FontAwesome5 name="concierge-bell" color={color} size={size}/>
                 }}
             />
             <Tab.Screen 

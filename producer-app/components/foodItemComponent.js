@@ -21,19 +21,19 @@ const FoodItemComponent = ({ navigation, style, data }) => {
                     <View style={{...styles.row, justifyContent: "flex-start"}}>
                         <Text style={styles.text}>{data.type}</Text>
                         <FontAwesome name="circle" style={styles.dotIcon}/>
-                        <FontAwesome5 name="pepper-hot" style={{...styles.pepperIcon, color: data.spicyLevel > 0 ? Colors.DarkMode.red : Colors.DarkMode.text2 }} />
-                        <FontAwesome5 name="pepper-hot" style={{...styles.pepperIcon, color: data.spicyLevel > 1 ? Colors.DarkMode.red : Colors.DarkMode.text2 }} />
-                        <FontAwesome5 name="pepper-hot" style={{...styles.pepperIcon, color: data.spicyLevel > 2 ? Colors.DarkMode.red : Colors.DarkMode.text2 }} />
+                        <FontAwesome5 name="pepper-hot" style={{...styles.pepperIcon, color: data.spicyLevel > 0 ? Colors.RED : Colors.SECONDARY_TEXT }} />
+                        <FontAwesome5 name="pepper-hot" style={{...styles.pepperIcon, color: data.spicyLevel > 1 ? Colors.RED : Colors.SECONDARY_TEXT }} />
+                        <FontAwesome5 name="pepper-hot" style={{...styles.pepperIcon, color: data.spicyLevel > 2 ? Colors.RED : Colors.SECONDARY_TEXT }} />
                         <FontAwesome name="circle" style={styles.dotIcon}/>
                         <Text style={styles.text}>{data.quantity} oz</Text>
                     </View>
                     <View style={styles.row}>
                         <View style={{ flexDirection: "row" }}>
-                            <FontAwesome name="star" style={{...styles.starIcon, color: data.stars > 0 ? Colors.DarkMode.accent : Colors.DarkMode.text2}}/>
-                            <FontAwesome name="star" style={{...styles.starIcon, color: data.stars > 1 ? Colors.DarkMode.accent : Colors.DarkMode.text2}}/>
-                            <FontAwesome name="star" style={{...styles.starIcon, color: data.stars > 2 ? Colors.DarkMode.accent : Colors.DarkMode.text2}}/>
-                            <FontAwesome name="star" style={{...styles.starIcon, color: data.stars > 3 ? Colors.DarkMode.accent : Colors.DarkMode.text2}}/>
-                            <FontAwesome name="star" style={{...styles.starIcon, color: data.stars > 4 ? Colors.DarkMode.accent : Colors.DarkMode.text2}}/>
+                            <FontAwesome name="star" style={{...styles.starIcon, color: data.stars > 0 ? Colors.ACCENT : Colors.SECONDARY_TEXT}}/>
+                            <FontAwesome name="star" style={{...styles.starIcon, color: data.stars > 1 ? Colors.ACCENT : Colors.SECONDARY_TEXT}}/>
+                            <FontAwesome name="star" style={{...styles.starIcon, color: data.stars > 2 ? Colors.ACCENT : Colors.SECONDARY_TEXT}}/>
+                            <FontAwesome name="star" style={{...styles.starIcon, color: data.stars > 3 ? Colors.ACCENT : Colors.SECONDARY_TEXT}}/>
+                            <FontAwesome name="star" style={{...styles.starIcon, color: data.stars > 4 ? Colors.ACCENT : Colors.SECONDARY_TEXT}}/>
                             <Text style={styles.text}> ({data.numOfReviews})</Text>
                         </View>
                         <Text style={styles.text}>{data.distance} Miles</Text>
@@ -46,7 +46,7 @@ const FoodItemComponent = ({ navigation, style, data }) => {
 
 const styles = StyleSheet.create({
     container:{
-        backgroundColor: Colors.DarkMode.background1,
+        backgroundColor: Colors.SECONDARY_BACKGROUND,
         borderRadius: 5,
         padding: 10,
         flexDirection: "row",
@@ -70,17 +70,17 @@ const styles = StyleSheet.create({
         margin: 3,
     },
     row1text:{
-        color: Colors.DarkMode.text2,
+        color: Colors.SECONDARY_TEXT,
         fontWeight: "bold",
         fontSize: 12,
     },
     row2text1:{
-        color: Colors.DarkMode.text1,
+        color: Colors.PRIMARY_TEXT,
         fontWeight: "bold",
         fontSize: 18,
     },
     row2text2:{
-        color: Colors.DarkMode.green,
+        color: Colors.GREEN,
         fontWeight: "bold",
         fontSize: 18,
     },
@@ -89,24 +89,24 @@ const styles = StyleSheet.create({
     dotIcon:{
         alignSelf: "center",
         textAlign: "center",
-        color: Colors.DarkMode.text1,
+        color: Colors.PRIMARY_TEXT,
         fontSize: 5,
         width: 20,
     },
     pepperIcon:{
         alignSelf: "center",
-        color: Colors.DarkMode.red,
+        color: Colors.RED,
         fontSize: 14,
     },
     starIcon:{
         alignSelf: "center",
-        color: Colors.DarkMode.accent,
+        color: Colors.ACCENT,
         fontSize: 14,
     },
 
 
     text: {
-        color: Colors.DarkMode.text1
+        color: Colors.PRIMARY_TEXT
     }
 })
 

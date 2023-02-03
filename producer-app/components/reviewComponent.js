@@ -36,7 +36,7 @@ const ReviewComponent = () => {
 
 const styles = StyleSheet.create({
     container:{
-        backgroundColor: Colors.DarkMode.background1,
+        backgroundColor: Colors.SECONDARY_BACKGROUND,
         justifyContent: "center",
         alignItems: "center",
         color: 'white',
@@ -65,20 +65,20 @@ const styles = StyleSheet.create({
     },
     userName:{
         marginLeft: 10,
-        color: Colors.DarkMode.text1,
+        color: Colors.PRIMARY_TEXT,
         fontSize: 18,
         fontWeight: "bold",
     },
     reviewDate:{
         flexGrow: 2,
         textAlign: "right",
-        color: Colors.DarkMode.text2,
+        color: Colors.SECONDARY_TEXT,
         fontSize: 14,
         fontWeight: "bold",
     },
     reviewTitle:{
         flexGrow: 2,
-        color: Colors.DarkMode.text1,
+        color: Colors.PRIMARY_TEXT,
         fontSize: 14,
         fontWeight: "bold",
     },
@@ -87,11 +87,11 @@ const styles = StyleSheet.create({
     },
     star: {
         fontSize: 20,
-        color: Colors.DarkMode.accent,
+        color: Colors.ACCENT,
     },
     reviewBody:{
         width: "100%",
-        color: Colors.DarkMode.text1,
+        color: Colors.PRIMARY_TEXT,
         fontSize: 12,
         fontWeight: "bold",
     }

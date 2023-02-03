@@ -41,20 +41,20 @@ const FoodItemDetailsScreen = ({ navigation, route }) => {
                 <View style={{ ...styles.row, justifyContent: "flex-start" }}>
                     <Text style={styles.secondary}>{data.type}</Text>
                     <FontAwesome name="circle" style={styles.dotIcon}/>
-                    <FontAwesome5 name="pepper-hot" style={{...styles.pepperIcon, color: data.spicyLevel > 0 ? Colors.DarkMode.red : Colors.DarkMode.text2 }} />
-                    <FontAwesome5 name="pepper-hot" style={{...styles.pepperIcon, color: data.spicyLevel > 1 ? Colors.DarkMode.red : Colors.DarkMode.text2 }} />
-                    <FontAwesome5 name="pepper-hot" style={{...styles.pepperIcon, color: data.spicyLevel > 2 ? Colors.DarkMode.red : Colors.DarkMode.text2 }} />
+                    <FontAwesome5 name="pepper-hot" style={{...styles.pepperIcon, color: data.spicyLevel > 0 ? Colors.RED : Colors.SECONDARY_TEXT }} />
+                    <FontAwesome5 name="pepper-hot" style={{...styles.pepperIcon, color: data.spicyLevel > 1 ? Colors.RED : Colors.SECONDARY_TEXT }} />
+                    <FontAwesome5 name="pepper-hot" style={{...styles.pepperIcon, color: data.spicyLevel > 2 ? Colors.RED : Colors.SECONDARY_TEXT }} />
                     <FontAwesome name="circle" style={styles.dotIcon}/>
                     <Text style={styles.secondary}>{data.quantity} oz</Text>
                 </View>
                 
                 <View style={styles.row}>
                     <View style={{ flexDirection: "row" }}>
-                        <FontAwesome name="star" style={{...styles.starIcon, color: data.stars > 0 ? Colors.DarkMode.accent : Colors.DarkMode.text2}}/>
-                        <FontAwesome name="star" style={{...styles.starIcon, color: data.stars > 1 ? Colors.DarkMode.accent : Colors.DarkMode.text2}}/>
-                        <FontAwesome name="star" style={{...styles.starIcon, color: data.stars > 2 ? Colors.DarkMode.accent : Colors.DarkMode.text2}}/>
-                        <FontAwesome name="star" style={{...styles.starIcon, color: data.stars > 3 ? Colors.DarkMode.accent : Colors.DarkMode.text2}}/>
-                        <FontAwesome name="star" style={{...styles.starIcon, color: data.stars > 4 ? Colors.DarkMode.accent : Colors.DarkMode.text2}}/>
+                        <FontAwesome name="star" style={{...styles.starIcon, color: data.stars > 0 ? Colors.ACCENT : Colors.SECONDARY_TEXT}}/>
+                        <FontAwesome name="star" style={{...styles.starIcon, color: data.stars > 1 ? Colors.ACCENT : Colors.SECONDARY_TEXT}}/>
+                        <FontAwesome name="star" style={{...styles.starIcon, color: data.stars > 2 ? Colors.ACCENT : Colors.SECONDARY_TEXT}}/>
+                        <FontAwesome name="star" style={{...styles.starIcon, color: data.stars > 3 ? Colors.ACCENT : Colors.SECONDARY_TEXT}}/>
+                        <FontAwesome name="star" style={{...styles.starIcon, color: data.stars > 4 ? Colors.ACCENT : Colors.SECONDARY_TEXT}}/>
                         <Text style={styles.secondary}> ({data.numOfReviews})</Text>
                     </View>
                     <Text style={styles.secondary}>{data.distance} Miles</Text>
@@ -95,7 +95,7 @@ const styles = StyleSheet.create({
         marginVertical: 30,
     },
     primary: {
-        color: Colors.WHITE,
+        color: Colors.PRIMARY_TEXT,
         fontSize: 22,
         fontWeight: "bold",
     },
@@ -113,7 +113,9 @@ const styles = StyleSheet.create({
         backgroundColor: Colors.PRIMARY_BACKGROUND,
     },
     foodImage: {
-        height: "100%", width: "100%", backgroundColor: Colors.PRIMARY_BACKGROUND
+        height: "100%", 
+        width: "100%", 
+        backgroundColor: Colors.PRIMARY_BACKGROUND,
     },
     closeBtn: {
         fontSize: 42,
@@ -123,7 +125,7 @@ const styles = StyleSheet.create({
     dotIcon:{
         alignSelf: "center",
         textAlign: "center",
-        color: Colors.DarkMode.text1,
+        color: Colors.PRIMARY_TEXT,
         fontSize: 6,
         width: 20,
     },
@@ -147,13 +149,13 @@ const styles = StyleSheet.create({
         borderRadius: 20,
         padding: 10,
         elevation: 2
-      },
-      buttonOpen: {
+    },
+    buttonOpen: {
         backgroundColor: "#F194FF",
-      },
-      buttonClose: {
+    },
+    buttonClose: {
         backgroundColor: "#2196F3",
-      },
+    },
 })
 
 export default FoodItemDetailsScreen

@@ -57,8 +57,8 @@ const styles = StyleSheet.create({
     },
     stat:{
         padding: 10,
-        color: Colors.DarkMode.text1,
-        borderColor: Colors.DarkMode.accent,
+        color: Colors.PRIMARY_TEXT,
+        borderColor: Colors.ACCENT,
         borderWidth: 2,
         borderRadius: 5,
         fontWeight: "600",
@@ -68,7 +68,7 @@ const styles = StyleSheet.create({
         padding: 12,
         backgroundColor: Colors.SECONDARY_BACKGROUND,
         borderRadius: 5,
-        color: Colors.DarkMode.text1
+        color: Colors.PRIMARY_TEXT
     },
     icon:{
         color: Colors.GREEN,
@@ -83,7 +83,7 @@ const styles = StyleSheet.create({
     },
 
     text: {
-        color: Colors.DarkMode.text1,
+        color: Colors.PRIMARY_TEXT,
         fontWeight: "500"
     },
     btnText: {
